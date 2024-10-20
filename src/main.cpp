@@ -25,7 +25,44 @@ int main(){
         cout << "Player" << currentPlayer << " enter your move (Row, Column)" << endl;
         cin >> row >> col;
         cout << endl;
-        
+
+        if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ')
+        {
+            board[row][col] = currentPlayer;
+
+            if (checkWinner(board, currentPlayer))
+            {
+                showBoard;
+                cout << "Player" << currentPlayer << "wins" << endl;
+                gameOver = true;
+            }
+
+            else
+            {
+                bool draw = true;
+                for (int i = 0; i < 3; ++i)
+                {
+                    for (int j = 0; j < 3; ++j)
+                    {
+                        if (board[i][j] == ' ')
+                        {
+                            draw = false;
+                            break;
+                        }
+                    }
+                }
+                if (draw)
+                {
+                    showBoard(board);
+                    cout << "Its a tie!" << endl;
+                    gameOver = true;
+                }
+            }
+            if (currentPlayer == 'X') currentPlayer = 'O';
+            else currentPlayer = 'X';
+        }
+        else
+        cout << "Invalid move. Please try again" << endl;
     }
    
 }
