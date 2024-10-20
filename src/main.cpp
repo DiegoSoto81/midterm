@@ -5,7 +5,28 @@ void showBoard(char board [3][3]);
 bool checkWinner(char board[3][3], char player);
 
 int main(){
-    char board[3][3] = {}
+    char board[3][3] = {{' ', ' ', ' '},
+                        {' ', ' ', ' '},
+                        {' ', ' ', ' '}};
+    char currentPlayer = 'X';
+    bool gameOver = false;
+
+    cout << "Welcome to Tic-Tac-Toe" << endl;
+    cout << "Player X goes first..." << endl;
+    cout << endl;
+
+    while(!gameOver)
+    {
+        showBoard(board);
+
+        int row, col;
+        cout << endl;
+
+        cout << "Player" << currentPlayer << " enter your move (Row, Column)" << endl;
+        cin >> row >> col;
+        cout << endl;
+        
+    }
    
 }
 
